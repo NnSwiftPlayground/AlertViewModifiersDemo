@@ -8,10 +8,11 @@
 import SwiftUI
 
 struct FieldAlertViewModifier: ViewModifier {
+    @State var fieldText: String
     @Binding var isPresented: Bool
-    @State private var fieldText = ""
 
     let message: String
+    let fieldPrompt: String
     let actionButtonInfo: AlertButtonInfo
     let cancelButtonInfo: AlertButtonInfo
     let action: (String) -> Void
@@ -28,7 +29,7 @@ struct FieldAlertViewModifier: ViewModifier {
     func body(content: Content) -> some View {
         content
             .customAlert(message, isPresented: $isPresented, cancelButtonInfo: cancelButtonInfo, cancelAction: clearField) {
-                TextField("", text: $fieldText)
+                TextField(fieldPrompt, text: $fieldText)
                 Button(actionButtonInfo.text, role: actionButtonInfo.role, action: save)
             }
     }
@@ -38,14 +39,18 @@ extension View {
     func singleFieldAlert(
         _ message: String,
         isPresented: Binding<Bool>,
+        initialText: String = "",
+        fieldPrompt: String = "enter text...",
         actionButtonInfo: AlertButtonInfo = .save,
         cancelButtonInfo: AlertButtonInfo = .cancel,
         action: @escaping (String) -> Void
     ) -> some View {
         modifier(
             FieldAlertViewModifier(
+                fieldText: initialText,
                 isPresented: isPresented,
                 message: message,
+                fieldPrompt: fieldPrompt,
                 actionButtonInfo: actionButtonInfo,
                 cancelButtonInfo: cancelButtonInfo,
                 action: action
