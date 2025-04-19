@@ -11,7 +11,7 @@ import SwiftUI
 struct AlertViewModifiersDemoApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(user: .init(id: "0", name: ""))
         }
     }
 }
