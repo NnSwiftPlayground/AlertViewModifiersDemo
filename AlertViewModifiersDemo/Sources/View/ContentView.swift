@@ -14,7 +14,6 @@ struct ContentView: View {
         NavigationStack {
             Form {
                 NormalAlertSection()
-                
                 UsernameAlertSection(text: "My name is \(user.name)") { newName in
                     user.name = newName
                 }

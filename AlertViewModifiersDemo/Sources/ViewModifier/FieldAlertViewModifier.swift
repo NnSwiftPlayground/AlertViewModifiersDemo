@@ -36,6 +36,16 @@ struct FieldAlertViewModifier: ViewModifier {
 }
 
 extension View {
+    /// Presents an alert with a text field and two buttons (action and cancel).
+    ///
+    /// - Parameters:
+    ///   - message: The message content of the alert.
+    ///   - isPresented: Binding that determines whether the alert is shown.
+    ///   - initialText: Initial text for the text field (defaults to empty string).
+    ///   - fieldPrompt: Placeholder text for the text field (defaults to "enter text...").
+    ///   - actionButtonInfo: Information for the action button (defaults to `.save`).
+    ///   - cancelButtonInfo: Information for the cancel button (defaults to `.cancel`).
+    ///   - action: Closure that receives the entered text when the action button is tapped.
     func singleFieldAlert(
         _ message: String,
         isPresented: Binding<Bool>,

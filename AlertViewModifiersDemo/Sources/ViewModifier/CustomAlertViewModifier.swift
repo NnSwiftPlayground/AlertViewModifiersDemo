@@ -28,6 +28,14 @@ struct CustomAlertViewModifier<AlertView: View>: ViewModifier {
 }
 
 extension View {
+    /// Presents a customizable SwiftUI alert with a custom view for the alert's buttons.
+    ///
+    /// - Parameters:
+    ///   - message: The message content of the alert.
+    ///   - isPresented: Binding that determines whether the alert is shown.
+    ///   - cancelButtonInfo: Information for the cancel button (optional, defaults to `.cancel`).
+    ///   - cancelAction: Action to perform when cancel is selected (defaults to empty).
+    ///   - alertView: Closure that provides the custom alert view content.
     func customAlert<AlertView: View>(
         _ message: String,
         isPresented: Binding<Bool>,
