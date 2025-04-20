@@ -42,6 +42,7 @@ private struct UsernameAlertSection: View {
         } footer: {
             Text("The text from the field will automatically clear when the alert disappears so you don't have to worry about manually managing the text.")
         }
+        // 🟢 Feature: Displays an alert with a textfield to obtain user input
         .singleFieldAlert(
             "Enter your name",
             isPresented: $showingFieldAlert,
@@ -63,6 +64,7 @@ private struct NormalAlertSection: View {
             }
             .frame(maxWidth: .infinity)
         }
+        // 🟢 Feature: Presents an alert when necessary
         .showingAlert("My Alert", message: "This is a normal alert", isPresented: $showingNormalAlert)
     }
 }
