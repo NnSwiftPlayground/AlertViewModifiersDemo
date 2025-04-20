@@ -8,7 +8,7 @@ SwiftUI’s native `.alert` view modifier can become repetitive and rigid when y
 
 - Show a simple alert with a button.
 - Customize alert content beyond a basic message.
-- Collect user input (e.g., text fields) inside an alert.
+- Collect user input (using text fields) inside an alert.
 
 Manually managing `isPresented` booleans and duplicating `.alert` logic across views makes code harder to maintain.
 
