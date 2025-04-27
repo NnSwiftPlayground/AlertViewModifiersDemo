@@ -63,4 +63,4 @@ Two sections showcasing:
 
 This demo mirrors real-world use cases where clean, reusable alert presentation improves SwiftUI apps.
 
-This modifier is part of [NnSwiftUIKit](https://github.com/nikolainobadi/NnSwiftUIKit), a collection of custom SwiftUI view modifiers and utilities.
+These modifiers are part of [NnSwiftUIKit](https://github.com/nikolainobadi/NnSwiftUIKit), a collection of custom SwiftUI view modifiers and utilities.
