@@ -14,6 +14,7 @@ struct ContentView: View {
         NavigationStack {
             Form {
                 NormalAlertSection()
+                ErrorAlertSection()
                 UsernameAlertSection(text: "My name is \(user.name)") { newName in
                     user.name = newName
                 }
@@ -22,6 +23,41 @@ struct ContentView: View {
         }
     }
 }
+
+
+// MARK: - NormalAlertSection
+private struct NormalAlertSection: View {
+    @State private var showingNormalAlert = false
+    
+    var body: some View {
+        Section {
+            Button("Show Alert") {
+                showingNormalAlert = true
+            }
+            .frame(maxWidth: .infinity)
+        }
+        // 🟢 Feature: Presents an alert when necessary
+        .showingAlert("My Alert", message: "This is a normal alert", isPresented: $showingNormalAlert)
+    }
+}
+
+
+// MARK: - ErrorAlertSection
+private struct ErrorAlertSection: View {
+    @State private var error: Error?
+    
+    var body: some View {
+        Section {
+            Button("Show Error Alert") {
+                error = CustomError(message: "Something went wrong. Please try again later.")
+            }
+            .frame(maxWidth: .infinity)
+        }
+        // 🟢 Feature: Presents an alert with error details
+        .showingError(error: $error)
+    }
+}
+
 
 // MARK: - UsernameAlertSection
 private struct UsernameAlertSection: View {
@@ -49,23 +85,6 @@ private struct UsernameAlertSection: View {
             fieldPrompt: "username...",
             action: updateUsername
         )
-    }
-}
-
-
-// MARK: - NormalAlertSection
-private struct NormalAlertSection: View {
-    @State private var showingNormalAlert = false
-    
-    var body: some View {
-        Section {
-            Button("Show Alert") {
-                showingNormalAlert = true
-            }
-            .frame(maxWidth: .infinity)
-        }
-        // 🟢 Feature: Presents an alert when necessary
-        .showingAlert("My Alert", message: "This is a normal alert", isPresented: $showingNormalAlert)
     }
 }
 
