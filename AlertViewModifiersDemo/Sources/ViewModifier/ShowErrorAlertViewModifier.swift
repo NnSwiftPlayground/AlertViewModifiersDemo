@@ -14,7 +14,10 @@ struct ShowErrorAlertViewModifier: ViewModifier {
 
     func body(content: Content) -> some View {
         content
-            .showingAlert(title, message: error?.localizedDescription ?? "An error has occured", isPresented: .constant(error != nil))
+            .showingAlert(title, message: error?.localizedDescription ?? "An error has occured", isPresented: .constant(error != nil)) {
+                // VERY important to clear the error to prevent unwanted alerts after dismissing
+                error = nil
+            }
     }
 }
 
