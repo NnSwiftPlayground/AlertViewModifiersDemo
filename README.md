@@ -2,6 +2,10 @@
 
 A SwiftUI project demonstrating reusable, composable view modifiers for presenting custom alerts.
 
+## Demo
+
+![alerts Demo](media/alertsDemoVideo.gif)
+
 ## The Problem
 
 SwiftUI’s native `.alert` view modifier can become repetitive and rigid when you want to:
